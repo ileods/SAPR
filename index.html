@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
+    <link href="/css/bootstrap/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <title>Проект</title>
+</head>
+<body>
+        <span>1. Стержни</span>
+        <div class="row justify-content-start">
+            <div class="col-2">
+                <span>№ стержня</span>
+            </div>
+            <div class="col-2">
+                <span>Длина L, м</span>
+            </div>
+            <div class="col-2">
+                <span>Площадь поперечного сечения А, м^2</span>
+            </div>
+            <div class="col-2">
+                <span>Допускаемое<br> напряжение, Па</span>
+            </div>
+            <div class="col-2">
+                <span>Модуль упругости E, Па</span>
+            </div>
+        </div>
+        <form class="needs-validation" novalidate>
+            <div class="kernel-list">
+                <div class="row justify-content-start kernel">
+                    <div class="col-2">
+                        <input type="number" class="kernel-number">
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="length check-error">
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="square check-error">
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="sigma check-error" >
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="e check-error" >
+                    </div>
+                </div>
+
+            </div>
+            
+            <button id="add-kernel">+</button>
+        </form>
+        
+        <form>
+            <span>2. Опоры</span>
+            <div class="row justify-content-start">
+                <form>
+
+                    <div class="col-3">
+                        <input type="checkbox" id="left" name="left">
+                        <label for="left">Левая опора</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="checkbox" id="right" name="right">
+                        <label for="right">Правая опора</label>
+                    </div>
+                </form>
+                
+            </div>
+        </form>
+
+        <span>3. Нагрузки</span>
+        <p>Распределенные нагрузки</p>
+        <div class="row justify-content-start">
+            <div class="col-3">
+                <span>Номер стержня</span>
+            </div>
+            <div class="col-3">
+                <span>Значение q, Н/м </span>
+            </div>
+        </div>
+        <form action="">
+            <div class="Q-list">
+            </div>
+            <button  id="add-Q" >+</button>
+        </form>
+        <p>Сосредоточенные нагрузки</p>
+        <div class="row justify-content-start">
+            <div class="col-3">
+                <span>Номер узла</span>
+            </div>
+            <div class="col-3">
+                <span>Значение F, Н </span>
+            </div>
+        </div>
+        <form action="">
+            <div class="F-list">
+            </div>
+            
+            <button  id="add-F">+</button>
+        </form>
+        <br>
+        <button id="draw-kernels">Нарисовать</button>
+        <button id="calculate">Рассчитать</button>
+        <br>
+        <input id = "filename" type="text">
+        <button id="save">Сохранить</button>
+        <br>
+        <input id = "download-filename" type="text">
+        <button id = "download">Загрузить</button>
+        <br>
+
+        <canvas id="kernels-canvas" width="1000" height="360"></canvas> 
+        <br>
+        <h2>Nx</h2>
+        <canvas id="N-canvas" width="1000" height="360"></canvas>
+        <br>
+        <h2>Ux</h2>
+        <canvas id="U-canvas" width="1000" height="360"></canvas>
+        <br>
+        <h2>Sigma x</h2>
+        <canvas id="S-canvas" width="1000" height="360"></canvas>
+        
+</body>
+</html>
